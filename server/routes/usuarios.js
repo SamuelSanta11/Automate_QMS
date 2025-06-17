@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database/pool');
 
-router.get('/', async (req, res) => {
-    res.send('Lista de usuarios funcionando');
-});
 
 router.get('/', async (req, res) => {
   try {
@@ -21,7 +18,7 @@ router.get('/', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await pool.query('SELECT * FROM usuarios WHERE id = $1', [id]);
-    res.json(result.row[0]);
+    res.json(result.rows[0]);
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'Error al obtener usuario' });

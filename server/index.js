@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/maquinas', require('./routes/maquinas'));
 app.use('/api/formularios', require('./routes/formularios'));
+app.use('/api/preguntas', require('./routes/preguntas'));
+app.use('/api/respuestas', require('./routes/respuestas'));
+app.use('/api/notificaciones', require('./routes/notificaciones'));
+
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
